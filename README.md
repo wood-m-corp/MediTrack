@@ -2,8 +2,7 @@
 MediTrack is a local clinic oriented patient/appointment management system.
 
 # Developer Pre-Requisites
-For Compilation/Developers Only:
-Requires 
+Required for Compilation/Developers Only:
 
 Java 21: https://www.oracle.com/java/technologies/downloads/#java21
 
