@@ -1,10 +1,10 @@
-module com.example.demo2 {
+module com.example.meditrack {
     requires javafx.controls;
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.example.demo2 to javafx.fxml;
-    exports com.example.demo2;
+    opens com.example.meditrack to javafx.fxml;
+    exports com.example.meditrack;
 }
