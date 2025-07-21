@@ -68,4 +68,8 @@ public class Administrator extends Person {
         System.out.println("Role: " + getRole());
         System.out.println("Name: " + getFirstName() + " " + getLastName());
     }
+
+    public void createAppointment(){
+
+    }
 }
