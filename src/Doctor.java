@@ -1,23 +1,34 @@
-public class Doctor extends Person {
+import java.time.LocalDate;
 
-    public Doctor(String ID, String firstName, String lastName, String role, String specialty) {
-        setEmployeeID(ID);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setRole(role);
+class Doctor extends Person implements ReceptionistMethodHolder{
+    private String specialty;
+
+    public Doctor(String ID, Name name, String specialty) {
+        super(ID, name);
+        this.specialty = specialty;
     }
 
-    /*Display the doctor as:
-    * Employee ID: D001
-    * Role: Doctor
-    * Name: John Doe
-    * Specialty: None
-    * */
+    @Override
+    public String getRole() { return "Doctor"; }
 
+    @Override
     public void Display(){
-        System.out.println("Employee ID: " + getEmployeeID());
-        System.out.println("Role: " + getRole());
-        System.out.println("Name: " + getFirstName() + " " + getLastName());
-        System.out.println("Specialty: " + getSpecialty());
+        super.Display();
+        System.out.println("Specialty: " + specialty);
+    }
+
+    @Override
+    public Appointment setAppointment() {
+        return ReceptionistMethodHolder.super.setAppointment();
+    }
+
+    @Override
+    public void viewAppointments(LocalDate date) {
+        ReceptionistMethodHolder.super.viewAppointments(date);
+    }
+
+    @Override
+    public void viewPatientInfo(String ID) {
+        ReceptionistMethodHolder.super.viewPatientInfo(ID);
     }
 }

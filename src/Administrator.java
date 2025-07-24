@@ -1,75 +1,36 @@
-import javax.print.Doc;
+import java.time.LocalDate;
 
-public class Administrator extends Person {
+class Administrator extends Person implements UserCreator, ReceptionistMethodHolder {
 
-    public Administrator(String ID, String firstName, String lastName, String role) {
-        setEmployeeID(ID);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setRole(role);
+    public Administrator(String ID, Name name) {
+        super(ID, name);
     }
 
-    public void createAccount() {
-        //Enter ID
-        //Enter role
-        //Enter names
-        //If role is doctor, enter specialty
-        System.out.println("Enter role");
-        setRole(role);
-        if (getRole().equals("Doctor")) {
-            System.out.println("Enter ID");
-            setEmployeeID(employeeID);
-            System.out.println("Enter Doctor's specialty");
-            setSpecialty(specialty);
-            System.out.println("Enter first name of the Doctor");
-            setFirstName(firstName);
-            System.out.println("Enter last name of the Doctor");
-            setLastName(lastName);
+    @Override
+    public String getRole() { return "Administrator"; }
 
-            Doctor newDoctor = new Doctor(employeeID, firstName, lastName, role, specialty);
-        }
-
-        else if (getRole().equals("Receptionist")) {
-            System.out.println("Enter ID");
-            setEmployeeID(employeeID);
-            System.out.println("Enter first name of the Receptionist");
-            setFirstName(firstName);
-            System.out.println("Enter last name of the Receptionist");
-            setLastName(lastName);
-
-            Receptionist newReceptionist = new Receptionist(employeeID, firstName, lastName, role);
-        }
-
-        else if (getRole().equals("Administrator")) {
-            System.out.println("Enter ID");
-            setEmployeeID(employeeID);
-            System.out.println("Enter first name of the Administrator");
-            setFirstName(firstName);
-            System.out.println("Enter last name of the Administrator");
-            setLastName(lastName);
-
-            Administrator newAdministrator = new Administrator(employeeID, firstName, lastName, role);
-        }
-
-        else {
-            System.out.println("Invalid role... Enter 'Administrator', 'Doctor', or 'Receptionist'.");
-            createAccount();
-        }
+    @Override
+    public Person create(String role, String ID, Name name, String specialty) {
+        return UserCreator.super.create(role, ID, name, specialty);
     }
 
-    /*Display the Administrator as:
-     * Employee ID: R001
-     * Role: Administrator
-     * Name: John Doe
-     * */
-
-    public void Display(){
-        System.out.println("Employee ID: " + getEmployeeID());
-        System.out.println("Role: " + getRole());
-        System.out.println("Name: " + getFirstName() + " " + getLastName());
+    @Override
+    public Patient registerPatient() {
+        return ReceptionistMethodHolder.super.registerPatient();
     }
 
-    public void createAppointment(){
+    @Override
+    public Appointment setAppointment() {
+        return ReceptionistMethodHolder.super.setAppointment();
+    }
 
+    @Override
+    public void viewAppointments(LocalDate date) {
+        ReceptionistMethodHolder.super.viewAppointments(date);
+    }
+
+    @Override
+    public void viewPatientInfo(String ID) {
+        ReceptionistMethodHolder.super.viewPatientInfo(ID);
     }
 }

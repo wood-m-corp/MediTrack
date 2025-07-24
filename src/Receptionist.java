@@ -1,21 +1,32 @@
-public class Receptionist extends Person {
+import java.time.LocalDate;
 
-    public Receptionist(String ID, String firstName, String lastName, String role) {
-        setEmployeeID(ID);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setRole(role);
+class Receptionist extends Person implements ReceptionistMethodHolder {
+
+    public Receptionist(String ID, Name name) {
+        super(ID, name);
     }
 
-    /*Display the Receptionist as:
-     * Employee ID: R001
-     * Role: Receptionist
-     * Name: John Doe
-     * */
+    @Override
+    public String getRole() { return "Receptionist"; }
 
-    public void Display(){
-        System.out.println("Employee ID: " + getEmployeeID());
-        System.out.println("Role: " + getRole());
-        System.out.println("Name: " + getFirstName() + " " + getLastName());
+    //Creates Patient object with constructor parameters, then sets the remaining fields not in the parameters
+    @Override
+    public Patient registerPatient() {
+        return ReceptionistMethodHolder.super.registerPatient();
+    }
+
+    @Override
+    public Appointment setAppointment() {
+        return ReceptionistMethodHolder.super.setAppointment();
+    }
+
+    @Override
+    public void viewAppointments(LocalDate date) {
+        ReceptionistMethodHolder.super.viewAppointments(date);
+    }
+
+    @Override
+    public void viewPatientInfo(String ID) {
+        ReceptionistMethodHolder.super.viewPatientInfo(ID);
     }
 }

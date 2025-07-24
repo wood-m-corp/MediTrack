@@ -1,12 +1,12 @@
-public class Patient extends Person {
+class Patient {
 // Add other private variables, their setters, getters, and add parameters to constructor.
     // Deprecate contacts when Contacts class is available
-    private String emailAddress;
-    private String phoneNumber;
+    private String ID;
+    private ContactInfo contact;
+    private Name name;
     private String SSN;
 
-    //Personal information
-    private String middleName;
+    //Personal information - Can be filled in later
     private String gender;
     private String maritalStatus;
     private String race;
@@ -19,129 +19,57 @@ public class Patient extends Person {
     private String allergies;
     private String pastSurgeries;
 
-    public Patient(String ID, String firstName, String middleName, String lastName, String role) {
-        setEmployeeID(ID);
-        setFirstName(firstName);
-        setMiddleName(middleName);
-        setLastName(lastName);
-        setRole(role);
+    public Patient(String ID, Name name, String SSN) {
+        this.ID = ID;
+        this.name = name;
+        this.SSN = SSN;
     }
 
     //Setters
-    public void setEmailAddress(String emailAddress){
-        if (emailAddress != null) {
-            this.emailAddress = emailAddress;
-        } else {
-            System.out.println("Invalid email address");
-            System.exit(0);
-        }
-    }
-
-    public void setPhoneNumber(String phoneNumber){
-        if (phoneNumber != null) {
-            this.phoneNumber = phoneNumber;
-        } else {
-            System.out.println("Invalid phone number");
-            System.exit(0);
-        }
-    }
-
-
-    public void setSSN(String SSN){
-        if (SSN != null) {
-            this.SSN = SSN;
-        } else {
-            System.out.println("Invalid insurance provider");
-            System.exit(0);
-        }
-    }
-
-    public void setMiddleName(String middleName){
-        if (middleName != null) {
-            this.middleName = middleName;
-        } else {
-            System.out.println("Invalid middle name");
-            System.exit(0);
-        }
-    }
-
     public void setGender(String gender) {
-        if (gender != null) {
-            this.gender = gender;
-        } else {
-            System.out.println("Invalid gender");
-            System.exit(0);
-        }
+        this.gender = gender;
+    }
+
+    public void  setID(String ID) {
+        this.ID = ID;
+    }
+
+    public void setContact(ContactInfo contact) {
+        this.contact = contact;
     }
 
     public void setMaritalStatus(String maritalStatus) {
-        if (maritalStatus != null) {
-            this.maritalStatus = maritalStatus;
-        } else {
-            System.out.println("Invalid marital status");
-            System.exit(0);
-        }
+        this.maritalStatus = maritalStatus;
     }
 
     public void setRace(String race) {
-        if (race != null) {
-            this.race = race;
-        } else {
-            System.out.println("Invalid race");
-            System.exit(0);
-        }
+        this.race = race;
     }
 
     public void setEthnicity(String ethnicity) {
-        if (ethnicity != null) {
-            this.ethnicity = ethnicity;
-        } else {
-            System.out.println("Invalid ethnicity");
-            System.exit(0);
-        }
+        this.ethnicity = ethnicity;
     }
 
     public void setCurrentMedConditions(String currentMedConditions) {
-        if (currentMedConditions != null) {
-            this.currentMedConditions = currentMedConditions;
-        } else {
-            System.out.println("Invalid medical conditions");
-            System.exit(0);
-        }
+        this.currentMedConditions = currentMedConditions;
     }
 
     public void setCurrentMedications(String currentMedications) {
-        if (currentMedications != null) {
-            this.currentMedications = currentMedications;
-        } else {
-            System.out.println("Invalid medical conditions");
-            System.exit(0);
-        }
+        this.currentMedications = currentMedications;
     }
 
     public void setAllergies(String allergies) {
-        if (allergies != null) {
-            this.allergies = allergies;
-        } else {
-            System.out.println("Invalid allergies");
-            System.exit(0);
-        }
+        this.allergies = allergies;
     }
 
     public void setPastSurgeries(String pastSurgeries) {
-        if (pastSurgeries != null) {
-            this.pastSurgeries = pastSurgeries;
-        } else {
-            System.out.println("Invalid past surgeries");
-            System.exit(0);
-        }
+        this.pastSurgeries = pastSurgeries;
     }
 
     //Getters
-    public String getEmailAddress() { return emailAddress; }
+    public String getID() { return ID; }
+    public Name getName() { return name; }
     public String getSSN() { return SSN; }
-    public String getPhoneNumber() { return phoneNumber; }
-    public String getMiddleName() { return middleName; }
     public String getGender() { return gender; }
     public String getMaritalStatus() { return maritalStatus; }
     public String getRace() { return race; }
@@ -151,5 +79,35 @@ public class Patient extends Person {
     public String getAllergies() { return allergies; }
     public String getPastSurgeries() { return pastSurgeries; }
 
-    //Todo Add a Display() function
+    public void Display(){
+        System.out.println("Patient ID: " + ID);
+        System.out.println("Name: " + name);
+        System.out.println("Contact Info: " + contact);
+        System.out.println("Gender: " + gender);
+        System.out.println("SSN: " + SSN);
+        System.out.println("Marital Status: " + maritalStatus);
+        System.out.println("Race: " + race);
+        System.out.println("Ethnicity: " + ethnicity);
+        System.out.println("Current Medical Conditions: " + currentMedConditions);
+        System.out.println("Current Medications: " + currentMedications);
+        System.out.println("Allergies: " + allergies);
+        System.out.println("Past Surgeries: " + pastSurgeries);
+    }
+
+    @Override
+    public String toString() {
+        return "Patient ID: " + ID + "\n"
+                + "Name: " + name.getFullName() + "\n"
+                + "Email: " + contact.getEmail() + "\n"
+                + "Phone: " + contact.getPhone() + "\n"
+                + "Gender: " + gender + "\n"
+                + "SSN: " + SSN + "\n"
+                + "Marital Status: " + maritalStatus + "\n"
+                + "Race: " + race + "\n"
+                + "Ethnicity: " + ethnicity + "\n"
+                + "Current Medical Conditions: " + currentMedConditions + "\n"
+                + "Current Medications: " + currentMedications + "\n"
+                + "Allergies: " + allergies + "\n"
+                + "Past Surgeries: " + pastSurgeries;
+    }
 }
