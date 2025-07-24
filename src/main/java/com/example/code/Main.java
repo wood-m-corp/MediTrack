@@ -11,7 +11,7 @@ public class Main {
 
     private static void createUsersTable() {
         try (Connection conn = Database.connect();
-             Statement stmt = conn.createStatement()) {
+            Statement stmt = conn.createStatement()) {
             String sql = """
                 CREATE TABLE IF NOT EXISTS users (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
