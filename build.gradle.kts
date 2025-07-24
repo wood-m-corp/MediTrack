@@ -27,7 +27,7 @@ tasks.withType<JavaCompile> {
 
 application {
     mainModule.set("com.example.code")
-    mainClass.set("com.example.code.HelloApplication")
+    mainClass.set("com.example.code.Main")
 }
 
 javafx {
@@ -38,6 +38,7 @@ javafx {
 dependencies {
     implementation("org.controlsfx:controlsfx:11.2.1")
     implementation("org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0")
+    implementation("org.xerial:sqlite-jdbc:3.50.3.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
