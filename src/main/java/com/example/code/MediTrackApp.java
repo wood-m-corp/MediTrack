@@ -13,6 +13,7 @@ public class MediTrackApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MediTrackApp.class.getResource("register.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setResizable(false);
+        //stage.setMaximized(true);
         stage.setTitle("MediTrack Registration");
         stage.setScene(scene);
         stage.show();
