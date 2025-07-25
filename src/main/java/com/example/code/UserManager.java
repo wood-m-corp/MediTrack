@@ -10,11 +10,12 @@ public class UserManager {
         try (Connection conn = Database.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, user.getUsername());
-            pstmt.setString(2, user.getPassword()); // Hashing recommended
+            pstmt.setString(2, user.getPassword());
             pstmt.setString(3, user.getRole());
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
+            Logger.error("Database error", e);
             System.err.println(e.getMessage());
             return false;
         }
@@ -31,7 +32,7 @@ public class UserManager {
                 return new User(rs.getString("username"), rs.getString("password"), rs.getString("role"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            Logger.error("Database error", e);
         }
         return null;
     }

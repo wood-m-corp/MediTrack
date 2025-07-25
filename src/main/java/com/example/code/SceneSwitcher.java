@@ -19,7 +19,7 @@ public class SceneSwitcher {
             }
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            Logger.error("Scene switch error", e);
         }
     }
 }

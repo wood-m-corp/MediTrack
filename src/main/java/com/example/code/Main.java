@@ -22,7 +22,7 @@ public class Main {
             """;
             stmt.execute(sql);
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.error("Database error", e);
         }
     }
 }
