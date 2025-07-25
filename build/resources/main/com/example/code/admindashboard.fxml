@@ -11,10 +11,10 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button layoutX="54.0" layoutY="117.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="User Management" />
-            <Button layoutX="54.0" layoutY="213.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Appointments" />
-            <Button layoutX="383.0" layoutY="117.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Patient Records" />
-            <Button layoutX="383.0" layoutY="213.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Reportins" />
+            <Button layoutX="54.0" layoutY="117.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="User Management" onAction="#UserManager" />
+            <Button layoutX="54.0" layoutY="213.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Appointments" onAction="#showAppointments" />
+            <Button layoutX="383.0" layoutY="117.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Patient Records" onAction="#showPatientRecords" />
+            <Button layoutX="383.0" layoutY="213.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Reportings" onAction="#showReportings" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="238.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Screenshot_30-removebg-preview.png" />

@@ -36,4 +36,16 @@ public class UserManager {
         }
         return null;
     }
+
+    public static boolean adminExists() {
+        String sql = "SELECT 1 FROM users WHERE role = 'Admin' LIMIT 1";
+        try (Connection conn = Database.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery()) {
+            return rs.next(); // true if admin found
+        } catch (SQLException e) {
+            Logger.error("Error checking for admin", e);
+            return false;
+        }
+    }
 }

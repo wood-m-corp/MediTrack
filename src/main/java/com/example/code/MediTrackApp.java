@@ -6,11 +6,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class MediTrackApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MediTrackApp.class.getResource("register.fxml"));
+        String fxmlFile = UserManager.adminExists() ? "login.fxml" : "register.fxml";
+        FXMLLoader fxmlLoader = new FXMLLoader(MediTrackApp.class.getResource(fxmlFile));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setResizable(false);
         //stage.setMaximized(true);
