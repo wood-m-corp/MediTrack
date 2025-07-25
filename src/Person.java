@@ -8,6 +8,10 @@ abstract class Person {
         this.name = name;
     }
 
+    public void setName (Name name) {
+        this.name = name;
+    }
+
     public abstract String getRole();
     public String getID() { return ID; }
     public Name getName() { return name; }

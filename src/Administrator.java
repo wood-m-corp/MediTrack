@@ -48,4 +48,14 @@ class Administrator extends Person implements UserCreator, AdminMethodHolder, Re
     public void archivePatientData(String fileName) {
         AdminMethodHolder.super.archivePatientData(fileName);
     }
+
+    @Override
+    public void editAccount() {
+        AdminMethodHolder.super.editAccount();
+    }
+
+    @Override
+    public void deleteAccount() {
+        AdminMethodHolder.super.deleteAccount();
+    }
 }

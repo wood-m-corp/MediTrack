@@ -23,6 +23,15 @@ public class Registry {
         return null;
     }
 
+    public static Person findByID(String ID) {
+        for (Person user : allUsers) {
+            if (user.getID().equalsIgnoreCase(ID) ) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     public static void addPatient(Patient patient) {
         patientMap.put(patient.getID(), patient);
     }
@@ -46,5 +55,9 @@ public class Registry {
     //Return all patients on the list
     public static List<Patient> getAllPatients() {
         return new ArrayList<>(patientMap.values());
+    }
+
+    public static void removeUser(Person user) {
+        allUsers.remove(user);
     }
 }

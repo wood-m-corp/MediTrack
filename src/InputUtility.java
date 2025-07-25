@@ -31,5 +31,4 @@ public class InputUtility {
         }
         return keyboard.nextInt();
     }
-
 }
