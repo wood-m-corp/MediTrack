@@ -102,7 +102,7 @@ class Patient {
     public List<String> getCurrentMedications() { return currentMedications; }
     public List<String> getAllergies() { return allergies; }
     public List<String> getPastSurgeries() { return pastSurgeries; }
-    public List<MedicalChart> getCharts() { return charts; }
+    public List<MedicalChart> getChart() { return charts; }
 
     public void Display(){
         System.out.println("Patient ID: " + ID);

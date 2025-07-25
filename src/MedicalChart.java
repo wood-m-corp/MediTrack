@@ -11,16 +11,18 @@ public class MedicalChart {
 
     private List<String> medications;
     private List<String> pastSurgeries;
-    private String visitNotes;
+    private List<VisitNote> notes;
 
-    public MedicalChart(Name patientName, int patientAge, LocalDate dateOfBirth, List<String> medications,
-                        List<String> pastSurgeries, String visitNotes) {
+    public MedicalChart(Name patientName, int patientAge, LocalDate dateOfBirth,
+                        List<String> medications,
+                        List<String> pastSurgeries,
+                        List<VisitNote> notes) {
         this.patientName = patientName;
         this.patientAge = patientAge;
         this.dateOfBirth = dateOfBirth;
-        this.medications = medications;
-        this.pastSurgeries = pastSurgeries;
-        this.visitNotes = visitNotes;
+        this.medications = medications != null ? medications : new ArrayList<>();
+        this.pastSurgeries = pastSurgeries != null ? pastSurgeries : new ArrayList<>();
+        this.notes = notes != null ? notes : new ArrayList<>();
     }
 
     public void setMedications(List<String> medications) {
@@ -31,26 +33,34 @@ public class MedicalChart {
         this.pastSurgeries = pastSurgeries;
     }
 
-    public void addMedications(String medications) { this.medications.add(medications); }
-    public void addPastSurgeries(String pastSurgeries) { this.pastSurgeries.add(pastSurgeries); }
-    public void setVisitNotes(String visitNotes) { this.visitNotes = visitNotes; }
-    public Name getPatientName() { return patientName; }
-    public int getPatientAge() { return patientAge; }
-    public LocalDate getDateOfBirth() { return dateOfBirth; }
-    public List<String> getMedications() { return medications; }
-    public List<String> getPastSurgeries() { return pastSurgeries; }
-    public String getVisitNotes() { return visitNotes; }
+    public List<String> getMedications() {
+        return medications;
+    }
 
-    public void editMedicalChart(){
+    public List<String> getPastSurgeries() {
+        return pastSurgeries;
+    }
 
+    public List<VisitNote> getNotes() {
+        return notes;
     }
 
     @Override
     public String toString() {
-        return "Medical Chart for " + patientName.getFullName() +
-                " (DOB: " + dateOfBirth + ", Age: " + patientAge + ")\n" +
+        return "Medical Chart for " + patientName.getFullName() + "\n" +
+                "Age: " + patientAge + "\n" +
+                "DOB: " + dateOfBirth +  "\n" +
                 "Medications: " + medications + "\n" +
                 "Past Surgeries: " + pastSurgeries + "\n" +
-                "Visit Notes: " + visitNotes;
+                "Visit Notes:\n" + notesToString();
     }
+
+    private  String notesToString() {
+        StringBuilder sb = new StringBuilder();
+        for (VisitNote note : notes) {
+            sb.append(note.toString()).append("\n");
+        }
+        return sb.toString();
+    }
+
 }
