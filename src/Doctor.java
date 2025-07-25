@@ -33,8 +33,8 @@ class Doctor extends Person implements DoctorMethodHolder, ReceptionistMethodHol
     }
 
     @Override
-    public void createMedicalChart() {
-        DoctorMethodHolder.super.createMedicalChart();
+    public void createOrEditMedicalChart() {
+        DoctorMethodHolder.super.createOrEditMedicalChart();
     }
 
     @Override

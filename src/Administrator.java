@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-class Administrator extends Person implements UserCreator, ReceptionistMethodHolder, DoctorMethodHolder {
+class Administrator extends Person implements UserCreator, AdminMethodHolder, ReceptionistMethodHolder, DoctorMethodHolder {
 
     public Administrator(String ID, Name name) {
         super(ID, name);
@@ -32,5 +32,20 @@ class Administrator extends Person implements UserCreator, ReceptionistMethodHol
     @Override
     public void viewPatientInfo(String ID) {
         ReceptionistMethodHolder.super.viewPatientInfo(ID);
+    }
+
+    @Override
+    public void createOrEditMedicalChart() {
+        DoctorMethodHolder.super.createOrEditMedicalChart();
+    }
+
+    @Override
+    public void viewMedicalChart(String ID) {
+        DoctorMethodHolder.super.viewMedicalChart(ID);
+    }
+
+    @Override
+    public void archivePatientData(String fileName) {
+        AdminMethodHolder.super.archivePatientData(fileName);
     }
 }

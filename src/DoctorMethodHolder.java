@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 public interface DoctorMethodHolder {
-    default void createMedicalChart() {
+    default void createOrEditMedicalChart() {
         String patientID = InputUtility.prompt("Enter patient ID: ");
         Patient patient = Registry.getPatientByID(patientID);
 

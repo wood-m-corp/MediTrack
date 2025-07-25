@@ -9,8 +9,8 @@ abstract class Person {
     }
 
     public abstract String getRole();
-    public String getID() {return ID; }
-    public Name getName() {return name; }
+    public String getID() { return ID; }
+    public Name getName() { return name; }
 
     public void Display() {
         System.out.println("ID: " + ID);
