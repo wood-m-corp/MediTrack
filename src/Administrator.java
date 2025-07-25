@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-class Administrator extends Person implements UserCreator, ReceptionistMethodHolder {
+class Administrator extends Person implements UserCreator, ReceptionistMethodHolder, DoctorMethodHolder {
 
     public Administrator(String ID, Name name) {
         super(ID, name);

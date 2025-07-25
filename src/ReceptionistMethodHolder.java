@@ -29,6 +29,12 @@ public interface ReceptionistMethodHolder {
         Patient patient = new Patient(ID, name, ssn);
 
         // Additional personal details
+        int age = InputUtility.promptInt("Enter age: ");
+        patient.setAge(age);
+
+        LocalDate dateOfBirth = InputUtility.promptDate("Enter date of birth (yyyy-MM-dd): ");
+        patient.setDateOfBirth(dateOfBirth);
+
         String maritalStatus = InputUtility.prompt("Enter Marital Status: ");
         patient.setMaritalStatus(maritalStatus);
 
@@ -40,20 +46,19 @@ public interface ReceptionistMethodHolder {
 
         // Medical history
         String medConditions = InputUtility.prompt("Enter Current Medical Conditions: ");
-        patient.setCurrentMedConditions(medConditions);
+        patient.addCurrentMedConditions(medConditions);
 
         String medications = InputUtility.prompt("Enter Current Medications: ");
-        patient.setCurrentMedications(medications);
+        patient.addCurrentMedications(medications);
 
         String allergies = InputUtility.prompt("Enter Allergies: ");
-        patient.setAllergies(allergies);
+        patient.addAllergies(allergies);
 
         String pastSurgeries = InputUtility.prompt("Enter Past Surgeries: ");
-        patient.setPastSurgeries(pastSurgeries);
+        patient.addPastSurgeries(pastSurgeries);
 
         System.out.println(patient);
-        listOfPatients.add(patient);
-        patientByID.put(patient.getID(), patient);
+        Registry.addPatient(patient);
         return patient;
 
         //Save to DB

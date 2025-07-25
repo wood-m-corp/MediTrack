@@ -1,6 +1,11 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+
 class Patient {
 // Add other private variables, their setters, getters, and add parameters to constructor.
-    // Deprecate contacts when Contacts class is available
     private String ID;
     private ContactInfo contact;
     private Name name;
@@ -11,13 +16,18 @@ class Patient {
     private String maritalStatus;
     private String race;
     private String ethnicity;
+    private int age;
+    private LocalDate dateOfBirth;
 
 
     //Medical History
-    private String currentMedConditions;
-    private String currentMedications;
-    private String allergies;
-    private String pastSurgeries;
+    private List<String> currentMedConditions = new ArrayList<>();
+    private List<String> currentMedications = new ArrayList<>();
+    private List<String> allergies = new ArrayList<>();
+    private List<String> pastSurgeries = new ArrayList<>();
+
+    //Medical Chart
+    private List<MedicalChart> charts = new ArrayList<>();
 
     public Patient(String ID, Name name, String SSN) {
         this.ID = ID;
@@ -42,6 +52,14 @@ class Patient {
         this.maritalStatus = maritalStatus;
     }
 
+    public void setAge (int age) {
+        this.age = age;
+    }
+
+    public void setDateOfBirth (LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
     public void setRace(String race) {
         this.race = race;
     }
@@ -50,20 +68,24 @@ class Patient {
         this.ethnicity = ethnicity;
     }
 
-    public void setCurrentMedConditions(String currentMedConditions) {
-        this.currentMedConditions = currentMedConditions;
+    public void addCurrentMedConditions(String currentMedConditions) {
+        this.currentMedConditions.add(currentMedConditions);
     }
 
-    public void setCurrentMedications(String currentMedications) {
-        this.currentMedications = currentMedications;
+    public void addCurrentMedications(String currentMedications) {
+        this.currentMedications.add(currentMedications);
     }
 
-    public void setAllergies(String allergies) {
-        this.allergies = allergies;
+    public void addAllergies(String allergies) {
+        this.allergies.add(allergies);
     }
 
-    public void setPastSurgeries(String pastSurgeries) {
-        this.pastSurgeries = pastSurgeries;
+    public void addPastSurgeries(String pastSurgeries) {
+        this.pastSurgeries.add(pastSurgeries);
+    }
+
+    public void addMedicalChart(MedicalChart Chart) {
+        charts.add(Chart);
     }
 
     //Getters
@@ -71,18 +93,22 @@ class Patient {
     public Name getName() { return name; }
     public String getSSN() { return SSN; }
     public String getGender() { return gender; }
+    public int getAge() { return age; }
+    public LocalDate getDateOfBirth() { return dateOfBirth; }
     public String getMaritalStatus() { return maritalStatus; }
     public String getRace() { return race; }
     public String getEthnicity() { return ethnicity; }
-    public String getCurrentMedConditions() { return currentMedConditions; }
-    public String getCurrentMedications() { return currentMedications; }
-    public String getAllergies() { return allergies; }
-    public String getPastSurgeries() { return pastSurgeries; }
+    public List<String> getCurrentMedConditions() { return currentMedConditions; }
+    public List<String> getCurrentMedications() { return currentMedications; }
+    public List<String> getAllergies() { return allergies; }
+    public List<String> getPastSurgeries() { return pastSurgeries; }
+    public List<MedicalChart> getCharts() { return charts; }
 
     public void Display(){
         System.out.println("Patient ID: " + ID);
         System.out.println("Name: " + name);
         System.out.println("Contact Info: " + contact);
+        System.out.println("Age: " + age);
         System.out.println("Gender: " + gender);
         System.out.println("SSN: " + SSN);
         System.out.println("Marital Status: " + maritalStatus);

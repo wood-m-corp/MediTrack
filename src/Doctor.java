@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-class Doctor extends Person implements ReceptionistMethodHolder{
+class Doctor extends Person implements DoctorMethodHolder, ReceptionistMethodHolder{
     private String specialty;
 
     public Doctor(String ID, Name name, String specialty) {
@@ -30,5 +30,15 @@ class Doctor extends Person implements ReceptionistMethodHolder{
     @Override
     public void viewPatientInfo(String ID) {
         ReceptionistMethodHolder.super.viewPatientInfo(ID);
+    }
+
+    @Override
+    public void createMedicalChart() {
+        DoctorMethodHolder.super.createMedicalChart();
+    }
+
+    @Override
+    public void viewMedicalChart(String ID) {
+        DoctorMethodHolder.super.viewMedicalChart(ID);
     }
 }
