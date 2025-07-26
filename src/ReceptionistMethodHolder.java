@@ -19,11 +19,6 @@ public interface ReceptionistMethodHolder {
         String lastName = InputUtility.prompt("Enter Last Name: ");
         Name name = new Name(firstName, middleName, lastName);
 
-        String email = InputUtility.prompt("Enter Email: ");
-        String phone = InputUtility.prompt("Enter Phone: ");
-        ContactInfo contact = new ContactInfo(email, phone);
-
-        String gender = InputUtility.prompt("Enter Gender: ");
         String ssn = InputUtility.prompt("Enter SSN: ");
 
         Patient patient = new Patient(ID, name, ssn);
@@ -43,6 +38,9 @@ public interface ReceptionistMethodHolder {
 
         String ethnicity = InputUtility.prompt("Enter Ethnicity: ");
         patient.setEthnicity(ethnicity);
+
+        String gender = InputUtility.prompt("Enter Gender: ");
+        patient.setGender(gender);
 
         // Medical history
         String medConditions = InputUtility.prompt("Enter Current Medical Conditions: ");
@@ -72,9 +70,6 @@ public interface ReceptionistMethodHolder {
         String pLast = InputUtility.prompt("Enter Patient Last Name: ");
         Name pName = new Name(pFirst, pMiddle, pLast);
 
-        String pEmail = InputUtility.prompt("Enter Patient Email: ");
-        String pPhone = InputUtility.prompt("Enter Patient Phone: ");
-        ContactInfo pContact = new ContactInfo(pEmail, pPhone);
         String pGender = InputUtility.prompt("Enter Patient Gender: ");
         String pSSN = InputUtility.prompt("Enter Patient SSN: ");
 

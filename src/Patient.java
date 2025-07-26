@@ -7,7 +7,6 @@ import java.util.List;
 class Patient {
 // Add other private variables, their setters, getters, and add parameters to constructor.
     private String ID;
-    private ContactInfo contact;
     private Name name;
     private String SSN;
 
@@ -27,7 +26,7 @@ class Patient {
     private List<String> pastSurgeries = new ArrayList<>();
 
     //Medical Chart
-    private List<MedicalChart> charts = new ArrayList<>();
+    private MedicalChart chart;
 
     public Patient(String ID, Name name, String SSN) {
         this.ID = ID;
@@ -42,10 +41,6 @@ class Patient {
 
     public void  setID(String ID) {
         this.ID = ID;
-    }
-
-    public void setContact(ContactInfo contact) {
-        this.contact = contact;
     }
 
     public void setMaritalStatus(String maritalStatus) {
@@ -68,6 +63,10 @@ class Patient {
         this.ethnicity = ethnicity;
     }
 
+    public void setMedicalChart(MedicalChart chart) {
+        this.chart = chart;
+    }
+
     public void addCurrentMedConditions(String currentMedConditions) {
         this.currentMedConditions.add(currentMedConditions);
     }
@@ -84,9 +83,6 @@ class Patient {
         this.pastSurgeries.add(pastSurgeries);
     }
 
-    public void addMedicalChart(MedicalChart Chart) {
-        charts.add(Chart);
-    }
 
     //Getters
     public String getID() { return ID; }
@@ -102,12 +98,11 @@ class Patient {
     public List<String> getCurrentMedications() { return currentMedications; }
     public List<String> getAllergies() { return allergies; }
     public List<String> getPastSurgeries() { return pastSurgeries; }
-    public List<MedicalChart> getChart() { return charts; }
+    public MedicalChart getChart() { return chart; }
 
     public void Display(){
         System.out.println("Patient ID: " + ID);
         System.out.println("Name: " + name);
-        System.out.println("Contact Info: " + contact);
         System.out.println("Age: " + age);
         System.out.println("Gender: " + gender);
         System.out.println("SSN: " + SSN);
@@ -124,8 +119,6 @@ class Patient {
     public String toString() {
         return "Patient ID: " + ID + "\n"
                 + "Name: " + name.getFullName() + "\n"
-                + "Email: " + contact.getEmail() + "\n"
-                + "Phone: " + contact.getPhone() + "\n"
                 + "Gender: " + gender + "\n"
                 + "SSN: " + SSN + "\n"
                 + "Marital Status: " + maritalStatus + "\n"

@@ -11,7 +11,7 @@ public interface DoctorMethodHolder {
             return;
         }
 
-        MedicalChart Chart = (MedicalChart) patient.getChart();
+        MedicalChart Chart = patient.getChart();
 
         if (Chart == null) {
             Name name = patient.getName();
@@ -28,9 +28,9 @@ public interface DoctorMethodHolder {
             notes.add(new VisitNote(InputUtility.prompt("Enter notes from the visit: ")));
 
             Chart = new MedicalChart(name, age, dob, medications, pastSurgeries, notes);
-            patient.addMedicalChart(Chart);
 
-            patient.addMedicalChart(Chart);
+            patient.setMedicalChart(Chart);
+
             System.out.println("Chart added to " + name.getFullName());
             System.out.println(Chart);
 
@@ -50,7 +50,7 @@ public interface DoctorMethodHolder {
         }
 
         System.out.println("\nCurrent Medical Chart:");
-        System.out.println(patient.getChart());
+        System.out.println(Chart);
     }
 
     default void viewMedicalChart(String ID) {
